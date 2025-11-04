@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>轻量翻译工具</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="texture" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <main class="frame" role="main">
+      <section class="hero">
+        <h1>译想天开</h1>
+        <div id="heroSlogan" class="hero-slogan" aria-live="polite"></div>
+        <p class="hero-slogan-item" data-slogan aria-hidden="true">轻触成译，意自呈现</p>
+        <p class="hero-slogan-item" data-slogan aria-hidden="true">Tap to translate; meaning appears.</p>
+        <p class="hero-slogan-item" data-slogan aria-hidden="true">タップで翻訳、意が現れる</p>
+        <p class="hero-slogan-item" data-slogan aria-hidden="true">터치하면 번역, 뜻이 나타난다.</p>
+      </section>
+
+      <div class="panel-grid">
+        <section class="panel form-screen" aria-label="翻译输入">
+          <form id="translate-form" class="form" autocomplete="off">
+            <div class="language-row">
+              <label class="input-field" for="sourceLanguage">
+                <span class="input-label"> </span>
+                <select id="sourceLanguage">
+                  <option value="auto">自动检测</option>
+                  <option value="zh" selected>中文</option>
+                  <option value="en">英文</option>
+                  <option value="ja">日文</option>
+                  <option value="ko">韩文</option>
+                </select>
+              </label>
+
+              <button id="swapBtn" type="button" class="ghost icon" aria-label="交换语种">
+                &#8646;
+              </button>
+
+              <label class="input-field" for="targetLanguage">
+                <span class="input-label"> </span>
+                <select id="targetLanguage">
+                  <option value="en" selected>英文</option>
+                  <option value="zh">中文</option>
+                  <option value="ja">日文</option>
+                  <option value="ko">韩文</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="input-field" for="sourceText">
+              <span class="input-label"> </span>
+              <span class="input-label"> </span>
+              <div class="text-input-wrapper">
+                <textarea
+                  id="sourceText"
+                  rows="10"
+                  placeholder="请输入需要翻译的文本"
+                  spellcheck="false"
+                ></textarea>
+              </div>
+            </label>
+
+            <div class="form-footer">
+              <button id="translateBtn" class="primary" type="submit">开始翻译</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel result-panel" aria-label="翻译结果">
+          <div class="result-head">
+            <h2>翻译结果</h2>
+            <span id="status" class="status-text" aria-live="polite">待翻译</span>
+          </div>
+          <pre
+            id="result"
+            class="report-output"
+            tabindex="0"
+            aria-label="翻译结果内容"
+            title="点击复制翻译结果"
+          ></pre>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+
