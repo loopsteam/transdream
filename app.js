@@ -118,7 +118,7 @@ async function handleTranslate(event) {
 
   try {
     const payload = buildTranslateRequest(trimmed);
-    const response = await fetch("/api/translate", {
+    const response = await fetch("/.netlify/functions/translate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -507,3 +507,4 @@ function buildSentenceNodes(text) {
     return span;
   });
 }
+
